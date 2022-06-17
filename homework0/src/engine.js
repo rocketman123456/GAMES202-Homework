@@ -31,7 +31,7 @@ function GAMES202Main() {
 	camera.position.set(cameraPosition[0], cameraPosition[1], cameraPosition[2]);
 	cameraControls.target.set(0, 1, 0);
 
-	const pointLight = new PointLight(250, [1, 1, 1]);
+	const pointLight = new PointLight(250.1, [1.0, 1.0, 1.0]);
 
 	const renderer = new WebGLRenderer(gl, camera);
 	renderer.addLight(pointLight);
@@ -45,6 +45,7 @@ function GAMES202Main() {
 		modelScaleY: 52,
 		modelScaleZ: 52,
 	}
+
 	function createGUI() {
 		const gui = new dat.gui.GUI();
 		const panelModel = gui.addFolder('Model properties');
@@ -65,9 +66,9 @@ function GAMES202Main() {
 
 	function mainLoop(now) {
 		cameraControls.update();
-
 		renderer.render(guiParams);
 		requestAnimationFrame(mainLoop);
 	}
+
 	requestAnimationFrame(mainLoop);
 }

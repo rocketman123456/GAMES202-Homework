@@ -9,9 +9,7 @@ varying highp vec2 vTextureCoord;
 varying highp vec3 vFragPos;
 varying highp vec3 vNormal;
 
-
 void main(void) {
-
   vFragPos = aVertexPosition;
   vNormal = aNormalPosition;
 

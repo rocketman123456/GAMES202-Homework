@@ -31,9 +31,9 @@ class WebGLRenderer {
 
         // Handle light
         const timer = Date.now() * 0.00025;
-        let lightPos = [ Math.sin(timer * 6) * 100, 
-                         Math.cos(timer * 4) * 150, 
-                         Math.cos(timer * 2) * 100 ];
+        let lightPos = [Math.sin(timer * 6) * 100,
+        Math.cos(timer * 4) * 150,
+        Math.cos(timer * 2) * 100];
 
         if (this.lights.length != 0) {
             for (let l = 0; l < this.lights.length; l++) {
@@ -46,8 +46,9 @@ class WebGLRenderer {
                     const modelTranslation = [guiParams.modelTransX, guiParams.modelTransY, guiParams.modelTransZ];
                     const modelScale = [guiParams.modelScaleX, guiParams.modelScaleY, guiParams.modelScaleZ];
                     let meshTrans = new TRSTransform(modelTranslation, modelScale);
-                    
+
                     this.gl.useProgram(mesh.shader.program.glShaderProgram);
+                    this.gl.uniform1f(mesh.shader.program.uniforms.uLightIntensity, this.lights[l].entity.mat.intensity);
                     this.gl.uniform3fv(mesh.shader.program.uniforms.uLightPos, lightPos);
                     mesh.draw(this.camera, meshTrans);
                 }

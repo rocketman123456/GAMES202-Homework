@@ -5,7 +5,7 @@ class MeshRender {
 	#normalBuffer;
 	#texcoordBuffer;
 	#indicesBuffer;
-	
+
 	constructor(gl, mesh, material) {
 		this.gl = gl;
 		this.mesh = mesh;
@@ -137,7 +137,6 @@ class MeshRender {
 					false,
 					this.material.uniforms[k].value);
 			} else if (this.material.uniforms[k].type == '3fv') {
-				this.material.uniforms[k].
 				gl.uniform3fv(
 					this.shader.program.uniforms[k],
 					this.material.uniforms[k].value);

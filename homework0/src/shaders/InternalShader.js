@@ -22,6 +22,7 @@ void main(void) {
     gl_FragColor = vec4(uLightColor, 1.0);
 }
 `;
+
 const VertexShader = `
 attribute vec3 aVertexPosition;
 attribute vec3 aNormalPosition;

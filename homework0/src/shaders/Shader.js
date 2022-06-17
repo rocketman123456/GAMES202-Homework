@@ -44,14 +44,16 @@ class Shader {
 
         if (shaderLocations && shaderLocations.uniforms && shaderLocations.uniforms.length) {
             for (let i = 0; i < shaderLocations.uniforms.length; ++i) {
+                console.log('shader location: ', shaderLocations.uniforms[i])
                 result.uniforms = Object.assign(result.uniforms, {
                     [shaderLocations.uniforms[i]]: gl.getUniformLocation(result.glShaderProgram, shaderLocations.uniforms[i]),
                 });
-                //console.log(gl.getUniformLocation(result.glShaderProgram, 'uKd'));
+                //console.log(gl.getUniformLocation(result.glShaderProgram, shaderLocations.uniforms[i]));
             }
         }
         if (shaderLocations && shaderLocations.attribs && shaderLocations.attribs.length) {
             for (let i = 0; i < shaderLocations.attribs.length; ++i) {
+                console.log('shader attribs: ', shaderLocations.attribs[i])
                 result.attribs = Object.assign(result.attribs, {
                     [shaderLocations.attribs[i]]: gl.getAttribLocation(result.glShaderProgram, shaderLocations.attribs[i]),
                 });

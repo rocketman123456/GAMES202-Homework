@@ -12,6 +12,7 @@ class Material {
         
         this.#flatten_uniforms = ['uModelViewMatrix', 'uProjectionMatrix', 'uCameraPos', 'uLightPos'];
         for (let k in uniforms) {
+            console.log('flatten_uniforms: ', k);
             this.#flatten_uniforms.push(k);
         }
         this.#flatten_attribs = attribs;
@@ -19,6 +20,7 @@ class Material {
 
     setMeshAttribs(extraAttribs) {
         for (let i = 0; i < extraAttribs.length; i++) {
+            console.log('extraAttribs: ', extraAttribs[i]);
             this.#flatten_attribs.push(extraAttribs[i]);
         }
     }
