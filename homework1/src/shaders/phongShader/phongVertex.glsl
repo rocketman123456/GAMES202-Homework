@@ -12,6 +12,12 @@ varying highp vec3 vFragPos;
 varying highp vec3 vNormal;
 varying highp vec4 vPositionFromLight;
 
+// TODO : add multi light support
+// #define MAX_LIGHT_COUNT 16
+// uniform int lightCount
+// uniform mat4 uLightMVP[MAX_LIGHT_COUNT]
+// varying highp vec4 vPositionFromLight[MAX_LIGHT_COUNT];
+
 void main(void) {
     vFragPos = (uModelMatrix * vec4(aVertexPosition, 1.0)).xyz;
     vNormal = (uModelMatrix * vec4(aNormalPosition, 0.0)).xyz;

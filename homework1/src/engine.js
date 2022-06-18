@@ -1,4 +1,4 @@
-var cameraPosition = [80, 80, 80]
+var cameraPosition = [50, 80, 50]
 
 //生成的纹理的分辨率，纹理必须是标准的尺寸 256*256 1024*1024  2048*2048
 var resolution = 2048;
@@ -55,11 +55,12 @@ function GAMES202Main() {
 	let floorTransform = setTransform(0, 0, -30, 4, 4, 4);
 	let obj1Transform = setTransform(0, 0, 0, 20, 20, 20);
 	let obj2Transform = setTransform(40, 0, -40, 10, 10, 10);
+	//let cubeTransform = setTransform(0, 50, 0, 10, 50, 10);
 
 	loadOBJ(renderer, 'assets/mary/', 'Marry', 'PhongMaterial', obj1Transform);
 	loadOBJ(renderer, 'assets/mary/', 'Marry', 'PhongMaterial', obj2Transform);
 	loadOBJ(renderer, 'assets/floor/', 'floor', 'PhongMaterial', floorTransform);
-
+	//loadOBJ(renderer, 'assets/testObj/', 'testObj', 'PhongMaterial', cubeTransform);
 
 	// let floorTransform = setTransform(0, 0, 0, 100, 100, 100);
 	// let cubeTransform = setTransform(0, 50, 0, 10, 50, 10);
