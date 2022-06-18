@@ -1,4 +1,4 @@
-var cameraPosition = [30, 30, 30]
+var cameraPosition = [80, 80, 80]
 
 //生成的纹理的分辨率，纹理必须是标准的尺寸 256*256 1024*1024  2048*2048
 var resolution = 2048;
@@ -51,7 +51,7 @@ function GAMES202Main() {
 	renderer.addLight(directionLight);
 
 	// Add shapes
-	
+
 	let floorTransform = setTransform(0, 0, -30, 4, 4, 4);
 	let obj1Transform = setTransform(0, 0, 0, 20, 20, 20);
 	let obj2Transform = setTransform(40, 0, -40, 10, 10, 10);
@@ -59,16 +59,15 @@ function GAMES202Main() {
 	loadOBJ(renderer, 'assets/mary/', 'Marry', 'PhongMaterial', obj1Transform);
 	loadOBJ(renderer, 'assets/mary/', 'Marry', 'PhongMaterial', obj2Transform);
 	loadOBJ(renderer, 'assets/floor/', 'floor', 'PhongMaterial', floorTransform);
-	
+
 
 	// let floorTransform = setTransform(0, 0, 0, 100, 100, 100);
 	// let cubeTransform = setTransform(0, 50, 0, 10, 50, 10);
 	// let sphereTransform = setTransform(30, 10, 0, 10, 10, 10);
 
 	//loadOBJ(renderer, 'assets/basic/', 'cube', 'PhongMaterial', cubeTransform);
-	// loadOBJ(renderer, 'assets/basic/', 'sphere', 'PhongMaterial', sphereTransform);
+	//loadOBJ(renderer, 'assets/basic/', 'sphere', 'PhongMaterial', sphereTransform);
 	//loadOBJ(renderer, 'assets/basic/', 'plane', 'PhongMaterial', floorTransform);
-
 
 	function createGUI() {
 		const gui = new dat.gui.GUI();
@@ -77,6 +76,8 @@ function GAMES202Main() {
 		// panelModel.open();
 	}
 	createGUI();
+
+	console.log('finish initialize');
 
 	function mainLoop(now) {
 		cameraControls.update();

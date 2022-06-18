@@ -2,7 +2,7 @@
  * Loads a Wavefront .mtl file specifying materials
  */
 
- THREE.MTLLoader = function ( manager ) {
+THREE.MTLLoader = function ( manager ) {
 
 	THREE.Loader.call( this, manager );
 
@@ -488,7 +488,7 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 			scale: new THREE.Vector2( 1, 1 ),
 			offset: new THREE.Vector2( 0, 0 )
 
-		 };
+		};
 
 		var items = value.split( /\s+/ );
 		var pos;
