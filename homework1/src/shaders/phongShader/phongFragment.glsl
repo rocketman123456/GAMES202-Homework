@@ -96,7 +96,7 @@ float findBlocker( sampler2D shadowMap,  vec2 uv, float zReceiver) {
 
     // 注意 block 的步长要比 PCSS 中的 PCF 步长长一些，这样生成的软阴影会更加柔和
     float filterStride = 10.0;
-    float filterRange = 1.0 / textureSize * filterStride;
+    float filterRange = filterStride / textureSize;
 
     // 有多少点在阴影里
     int shadowCount = 0;
@@ -105,7 +105,7 @@ float findBlocker( sampler2D shadowMap,  vec2 uv, float zReceiver) {
         vec2 sampleCoord = poissonDisk[i] * filterRange + uv;
         vec4 closestDepthVec = texture2D(shadowMap, sampleCoord); 
         float closestDepth = unpack(closestDepthVec);
-        if(zReceiver > closestDepth + 0.01) {
+        if(zReceiver > closestDepth - 0.01) {
             blockDepth += closestDepth;
             shadowCount += 1;
         }
@@ -173,7 +173,7 @@ float PCSS(sampler2D shadowMap, vec4 coords) {
         vec4 closestDepthVec = texture2D(shadowMap, sampleCoord); 
         float closestDepth = unpack(closestDepthVec);
         float currentDepth = coords.z;
-        if(currentDepth < closestDepth + EPS){
+        if(currentDepth < closestDepth + 0.01){
             visibility += 1.0;
         }
     }
